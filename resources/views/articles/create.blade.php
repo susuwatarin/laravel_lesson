@@ -5,6 +5,17 @@
   <h1>Write a New Article</h1>
   
   <hr/>
+  
+  {{-- エラー表示 --}}
+  @if ($errors->any)
+    <div class="alert alert-danger">
+      <ul>
+        @foreach($errors->all() as $error)
+          <li>{{ $error }}</li>
+        @endforeach
+      </ul>
+    </div>
+  @endif
 
   {!! Form::open(['url' => 'articles']) !!}
     <div class="from-group">
