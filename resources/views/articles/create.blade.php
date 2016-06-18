@@ -1,5 +1,9 @@
 @extends('layout')
 
+@section('title')
+New article
+@endsection
+
 @section('content')
 
   <h1>Write a New Article</h1>
