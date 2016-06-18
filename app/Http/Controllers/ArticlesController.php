@@ -53,6 +53,8 @@ class ArticlesController extends Controller
   public function store(ArticleRequest $request)
   {
     Article::create($request->all());
+    \Session::flash('flash_message', "{$article->title} is Article created.");
+
     return redirect('articles');
   }
 
@@ -81,6 +83,8 @@ class ArticlesController extends Controller
   {
     $article = Article::findOrFail($id);
     $article->update($request->all());
+    \Session::flash('flash_message', "{$article->title} is Article updated.");
+
     return redirect(url('articles', [$article->id]));
   }
   /***************************
@@ -94,6 +98,8 @@ class ArticlesController extends Controller
   {
     $article = Article::findOrFail($id);
     $article->delete();
+    \Session::flash('flash_message', "{$article->title} is Article deleted.");
+
     return redirect('articles');
   }
 
