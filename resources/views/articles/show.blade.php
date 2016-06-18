@@ -15,4 +15,10 @@
   <br/>
 
   {!! link_to(action('ArticlesController@edit', [$article->id]), 'Edit', ['class' => 'btn btn-primary']) !!}
+
+  <br/>
+  <br/>
+
+  {!! delete_form(['articles', $article->id])  !!}
+
 @endsection

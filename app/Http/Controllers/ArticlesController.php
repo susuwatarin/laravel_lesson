@@ -83,5 +83,18 @@ class ArticlesController extends Controller
     $article->update($request->all());
     return redirect(url('articles', [$article->id]));
   }
+  /***************************
+  記事削除
+    ・DBのArticlesテーブルから$idを引数としてデータを抜き、$articleに$idのデータを入力
+    ・0件だった場合に備えてfindOrFailでデータを抜く
+    ・$articleをデリート処理
+    ・ページを「/articles」にredirectする
+  ***************************/
+  public function destroy($id)
+  {
+    $article = Article::findOrFail($id);
+    $article->delete();
+    return redirect('articles');
+  }
 
 }
