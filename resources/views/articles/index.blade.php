@@ -9,7 +9,9 @@
  
     <hr/>
     
-    {!! link_to('articles/create', 'Create Aritcle', ['class' => 'btn btn-primary']) !!}
+    @if(Auth::check())
+        {!! link_to('articles/create', 'Create Aritcle', ['class' => 'btn btn-primary']) !!}
+    @endif
 
     @foreach($articles as $article)
         <article>

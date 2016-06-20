@@ -14,11 +14,12 @@
 
   <br/>
 
-  {!! link_to(action('ArticlesController@edit', [$article->id]), 'Edit', ['class' => 'btn btn-primary']) !!}
+  @if(Auth::check())
+    {!! link_to(action('ArticlesController@edit', [$article->id]), 'Edit', ['class' => 'btn btn-primary']) !!}
 
-  <br/>
-  <br/>
+    <br/>
+    <br/>
 
-  {!! delete_form(['articles', $article->id])  !!}
-
+    {!! delete_form(['articles', $article->id])  !!}
+  @endif
 @endsection

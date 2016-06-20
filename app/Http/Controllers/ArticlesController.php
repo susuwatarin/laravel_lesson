@@ -11,6 +11,11 @@ use Carbon\Carbon;
 
 class ArticlesController extends Controller
 {
+  public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index', 'show']]);
+    }
+    
   /***************************
   記事一覧ページ表示
     ・DBのArticlesテーブルからデータを抜き、$articlesに配列として入力
