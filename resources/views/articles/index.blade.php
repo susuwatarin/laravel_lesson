@@ -21,7 +21,7 @@
                 </a>
             </h2>
             <div class="body">
-                {{ $article->created_at }}
+                {{ $article->published_at }}
             </div>
         </article>
     @endforeach

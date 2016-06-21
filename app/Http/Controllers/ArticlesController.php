@@ -57,7 +57,8 @@ class ArticlesController extends Controller
   ***************************/
   public function store(ArticleRequest $request)
   {
-    Article::create($request->all());
+    // Article::create($request->all());
+    \Auth::user()->articles()->create($request->all());
     \Flash::success("New Article created.");
 
     return redirect()->route('articles.index');
