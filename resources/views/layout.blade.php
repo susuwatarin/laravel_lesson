@@ -7,14 +7,13 @@
     </head>
     <body>
         @include('navber')
-
         <div class="container">
-            @include('flash::message')
             <div class="content">
-                <!-- @if (Session::has('flash_message'))
-                    <div class="alert alert-success">{{ Session::get('flash_message') }}</div>
+<!--                 @if (Session::has('flash_message'))
+                  <div class="alert alert-success">{{ Session::get('flash_message') }}</div>
                 @endif -->
-                
+                @include('flash::message')
+
                 @yield('content')
             </div>
         </div>

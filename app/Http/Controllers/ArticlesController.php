@@ -59,9 +59,10 @@ class ArticlesController extends Controller
   {
     // Article::create($request->all());
     \Auth::user()->articles()->create($request->all());
-    \Flash::success("New Article created.");
+    // \Session::flash('flash_message', 'New Article has been created.');
+    \Flash::success("[ {$request->title} ]   has been created.");
 
-    return redirect()->route('articles.index');
+    return redirect('articles');
   }
 
   /***************************
@@ -89,7 +90,7 @@ class ArticlesController extends Controller
   {
     $article = Article::findOrFail($id);
     $article->update($request->all());
-    \Flash::success("{$article->title} updated.");
+    \Flash::success("[ {$article->title} ]   has beens updated.");
 
     return redirect()->route('articles.show', [$article->id]);
   }
@@ -104,7 +105,7 @@ class ArticlesController extends Controller
   {
     $article = Article::findOrFail($id);
     $article->delete();
-    \Flash::success("{$article->title} deleted.");
+    \Flash::success("[ {$article->title} ]   has beens deleted.");
 
     return redirect()->route('articles.index');
   }
