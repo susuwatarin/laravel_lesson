@@ -1,4 +1,5 @@
 @extends('layout')
+
 @section('title')
   Article:{{ $article->title }}
 @endsection
@@ -12,9 +13,18 @@
     <div class="body">{{ $article->body }}</body>
   </article>
 
-  <br/>
+  @unless($article->tags->isEmpty())
+    <h5>Tags:</h5>
+    <ul>
+      @foreach($article->tags as $tag)
+        <li>{{ $tag->name }}</li>
+      @endforeach
+    </ul>
+  @endunless
 
   @if(Auth::check())
+    <br/>
+    
     {!! link_to(action('ArticlesController@edit', [$article->id]), 'Edit', ['class' => 'btn btn-primary']) !!}
 
     <br/>
