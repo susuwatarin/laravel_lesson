@@ -33,9 +33,8 @@ class ArticlesController extends Controller
     ・0件だった場合に備えてfindOrFailでデータを抜く
     ・VIEWのarticles.showに$idの$articleデータを送る。
   ***************************/ 
-  public function show($id)
+  public function show(Article $article)
   {
-    $article = Article::findOrFail($id);
     return view('articles.show', compact('article'));
   }
 
